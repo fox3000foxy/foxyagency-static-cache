@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoxyAgency - Votre Succès sur YouTube</title>
+    <meta property="og:title" content="FoxyAgency - Votre Succès sur YouTube">
+    <meta property="og:description" content="Nous aidons les créateurs à réussir sur YouTube avec des stratégies personnalisées.">
+    <meta property="og:image" content="/favicon/favicon-96x96.png">
+    <meta property="og:url" content="https://FoxyAgency.fr">
+    <meta property="og:icon" content="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
+    <style>
+        :root {
+            --primary: #ff0000;
+            --secondary: #1a1a1a;
+            --accent: #ff4d4d;
+        }
+
+
+        html, body {
+            height: 100%;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--secondary);
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.1);
+        }
+
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before,
+        .section::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+            z-index: 1;
+        }
+
+        .section::after {
+            top: auto;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+        }
+
+        .section-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .btn-primary {
+                padding: 0.6rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stats-counter {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .btn-primary {
+                padding: 0.5rem 1rem;
+            }
+
+            .stats-counter {
+                font-size: 2rem;
+            }
+        }
+
+        /* Navigation Styles */
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: rgba(0, 0, 0, 0.95);
+                width: 100%;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 2px solid var(--primary);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+            }
+        }
+    </style>
+
+    <!-- Animations -->
+    <style>
+    .fade-in {
+        animation: fadeIn 1s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .slide-up {
+        animation: slideUp 0.5s ease-out forwards;
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .bounce {
+        animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-30px);
+        }
+        60% {
+            transform: translateY(-15px);
+        }
+    }
+    </style>
+</head>
+<body data-bs-theme="default">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md">
+        <div class="container flex justify-between items-center py-4">
+            <a href="index.html" class="flex items-center gap-2 text-2xl font-bold text-red-600">
+                <img src="foxyagency.png" alt="FoxyAgency Logo" class="w-12 h-12 object-contain" style="filter: invert(15%) sepia(95%) saturate(6932%) hue-rotate(359deg) brightness(97%) contrast(112%);" />
+                <span class="text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-400">FoxyAgency</span>
+            </a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars text-2xl text-red-600"></i>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html#services" class="hover:text-red-500 transition-colors duration-300"><i class="fa-solid fa-star mr-2"></i>Nos Solutions</a>
+                <a href="index.html#portfolio" class="hover:text-red-500 transition-colors duration-300"><i class="fa-solid fa-briefcase mr-2"></i>Portfolio</a>
+                <a href="index.html#testimonials" class="hover:text-red-500 transition-colors duration-300"><i class="fa-solid fa-comments mr-2"></i>Témoignages</a>
+                <a href="index.html#pricing" class="hover:text-red-500 transition-colors duration-300"><i class="fa-solid fa-tag mr-2"></i>Tarifs</a>
+                <a href="index.html#equipe" class="hover:text-red-500 transition-colors duration-300"><i class="fa-solid fa-users mr-2"></i>Équipe</a>
+                <a href="index.html#faq" class="hover:text-red-500 transition-colors duration-300"><i class="fa-solid fa-question-circle mr-2"></i>FAQ</a>
+                <a href="index.html#blog" class="hover:text-red-500 transition-colors duration-300"><i class="fa-solid fa-newspaper mr-2"></i>Blog</a>
+                <!-- <a href="#contact" class="btn-primary"><i class="fa-solid fa-envelope mr-2"></i>Contact</a> -->
+                 <a href="google-auth.html" class="btn-primary" id="username-here"><i class="fa-solid fa-envelope mr-2"></i>Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center pt-20 bg-gradient-to-br from-black via-red-900/20 to-black hero">
+        <div class="container">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <span class="text-red-500 font-semibold mb-4 block"><i class="fa-solid fa-crown mr-2"></i>L'agence n°1 en France</span>
+                    <h1 class="text-5xl md:text-5xl font-bold mb-6">Propulsez votre <span class="text-red-600">chaîne YouTube</span> vers les sommets</h1>
+                    <p class="text-xl mb-8 text-gray-300" style="text-align: left;">Petit ou gros créateur en recherche d'une agence ? Rejoignez plus de 500 créateurs qui nous ont fait confiance pour développer leur audience et multiplier leurs revenus par 10! <b>Vous hésitez encore ? Présentez l'agence pour bénéficier d'un soutien mutuel <span style="text-decoration: underline;">gratuitement</span>* !</b></p>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+                        <a href="index.html#contact" class="btn-primary"><i class="fa-solid fa-rocket mr-2"></i>Commencer l'aventure</a>
+                        <a href="index.html#portfolio" class="btn-primary bg-white/10 hover:bg-white/20"><i class="fa-solid fa-chart-line mr-2"></i>Voir nos résultats</a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-8 mt-12">
+                        <div>
+                            <div class="stats-counter" data-target="425">0</div>
+                            <p class="text-gray-400"><i class="fa-solid fa-users mr-2"></i>Créateurs accompagnés</p>
+                        </div>
+                        <div>
+                            <div class="stats-counter" data-target="4500000">0</div>
+                            <p class="text-gray-400"><i class="fa-solid fa-eye mr-2"></i>Vues générées</p>
+                        </div>
+                        <div>
+                            <div class="stats-counter" data-target="97">0</div>
+                            <p class="text-gray-400"><i class="fa-solid fa-heart mr-2"></i>Clients satisfaits</p>
+                        </div>
+                    </div>
+                    <script>
+                    function startCounters() {
+                        const counters = document.querySelectorAll('.stats-counter');
+                        counters.forEach(counter => {
+                            const target = parseInt(counter.getAttribute('data-target'));
+                            const increment = target / 200;
+                            let currentValue = 0;
+                            
+                            const updateCounter = () => {
+                                if(currentValue < target) {
+                                    currentValue += increment;
+                                    let displayValue = Math.ceil(currentValue);
+                                    if (target === 97) {
+                                        displayValue = displayValue + '%';
+                                    } else if (target === 4500000) {
+                                        displayValue = (displayValue / 1000000).toFixed(1) + 'M+';
+                                    } else {
+                                        displayValue = displayValue + '+';
+                                    }
+                                    counter.textContent = displayValue;
+                                    requestAnimationFrame(updateCounter);
+                                }
+                            };
+                            const observer = new IntersectionObserver((entries) => {
+                                if(entries[0].isIntersecting) {
+                                    updateCounter();
+                                }
+                            });
+                            
+                            observer.observe(counter);
+                        });
+                    }
+                    </script>
+                </div>
+                <div class="relative">
+                    <img src="hero.gif" alt="Hero" class="rounded-2xl shadow-2xl">
+                    <div class="absolute -z-10 top-0 right-0 w-72 h-72 bg-red-500/20 rounded-full filter blur-3xl"></div>
+                    <div class="absolute bottom-4 -left-4 bg-black/80 backdrop-blur-md p-4 rounded-xl">
+                        <p class="text-sm font-semibold"><i class="fa-solid fa-rocket mr-2"></i>+1000% de croissance en moyenne</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avant la section Services -->
+    <section class="py-20 bg-black/30">
+        <div class="container">
+            <span class="block text-center text-red-500 mb-4"><i class="fa-solid fa-diagram-project mr-2"></i>Notre Processus</span>
+            <h2 class="section-title">Comment nous travaillons</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="card text-center relative">
+                    <div class="absolute -top-4 -right-4 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center font-bold">1</div>
+                    <div class="text-4xl text-red-500 mb-4"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Audit</h3>
+                    <p class="text-gray-400">Analyse complète de votre chaîne et identification des opportunités</p>
+                </div>
+                <div class="card text-center relative">
+                    <div class="absolute -top-4 -right-4 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center font-bold">2</div>
+                    <div class="text-4xl text-red-500 mb-4"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Stratégie</h3>
+                    <p class="text-gray-400">Élaboration d'un plan d'action personnalisé</p>
+                </div>
+                <div class="card text-center relative">
+                    <div class="absolute -top-4 -right-4 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center font-bold">3</div>
+                    <div class="text-4xl text-red-500 mb-4"><i class="fa-solid fa-rocket"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Exécution</h3>
+                    <p class="text-gray-400">Mise en œuvre des actions et optimisations</p>
+                </div>
+                <div class="card text-center relative">
+                    <div class="absolute -top-4 -right-4 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center font-bold">4</div>
+                    <div class="text-4xl text-red-500 mb-4"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Résultats</h3>
+                    <p class="text-gray-400">Suivi des performances et ajustements continus</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 bg-black/50">
+        <div class="container">
+            <span class="block text-center text-red-500 mb-4"><i class="fa-solid fa-star mr-2"></i>Nos Solutions</span>
+            <h2 class="section-title">Services Premium pour Créateurs Ambitieux</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card">
+                    <div class="text-red-500 text-4xl mb-4"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Stratégie de croissance</h3>
+                    <p class="text-gray-400 mb-4">Analyse approfondie et plan d'action personnalisé pour développer votre chaîne</p>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa-solid fa-check mr-2"></i>Audit complet de votre chaîne</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Étude de votre audience</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Optimisation SEO</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Planning éditorial</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="text-red-500 text-4xl mb-4"><i class="fa-solid fa-video"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Production vidéo</h3>
+                    <p class="text-gray-400 mb-4">Équipe de professionnels pour créer du contenu de haute qualité</p>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa-solid fa-check mr-2"></i>Tournage professionnel</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Montage dynamique</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Design graphique</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Animation 2D/3D</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="text-red-500 text-4xl mb-4"><i class="fa-solid fa-money-bill-wave"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Monétisation</h3>
+                    <p class="text-gray-400 mb-4">Optimisation des revenus et partenariats avec des marques</p>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa-solid fa-check mr-2"></i>Négociation de contrats</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Sponsoring avec 100% de revenus pour vous</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Produits dérivés</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Coaching personnalisé</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="py-20 bg-black/50">
+        <div class="container">
+            <span class="block text-center text-red-500 mb-4"><i class="fa-solid fa-briefcase mr-2"></i>Portfolio</span>
+            <h2 class="section-title">Nos Plus Belles Réussites</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card">
+                    <img src="reussite1.png" alt="Projet 1" class="w-full rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Gaming Channel</h3>
+                    <p class="text-gray-400 mb-4">Environ 500K abonnés en 6 mois</p>
+                    <ul class="text-sm text-gray-400">
+                        <li><i class="fa-solid fa-circle-up mr-2"></i>De ~10K à ~500K abonnés</li>
+                        <li><i class="fa-solid fa-eye mr-2"></i>Près de 2M de vues par vidéo</li>
+                        <li><i class="fa-solid fa-euro-sign mr-2"></i>Autour de 50K€/mois de revenus</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <img src="reussite2.jpg" alt="Projet 2" class="w-full rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Tech Review</h3>
+                    <p class="text-gray-400 mb-4">Environ 1M de vues par vidéo</p>
+                    <ul class="text-sm text-gray-400">
+                        <li><i class="fa-solid fa-chart-line mr-2"></i>Près de 100% de croissance mensuelle</li>
+                        <li><i class="fa-solid fa-handshake mr-2"></i>Plus de 30 partenariats de marques</li>
+                        <li><i class="fa-solid fa-euro-sign mr-2"></i>Environ 35K€/mois de revenus</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <img src="banner3.webp" alt="Projet 3" class="w-full rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Lifestyle</h3>
+                    <p class="text-gray-400 mb-4">Près de 20K € /mois de revenus</p>
+                    <ul class="text-sm text-gray-400">
+                        <li><i class="fa-solid fa-users mr-2"></i>Environ 300K abonnés fidèles</li>
+                        <li><i class="fa-solid fa-handshake mr-2"></i>Une quinzaine de marques partenaires</li>
+                        <li><i class="fa-solid fa-shirt mr-2"></i>Ligne de produits dérivés</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20">
+        <div class="container">
+            <span class="block text-center text-red-500 mb-4"><i class="fa-solid fa-comments mr-2"></i>Témoignages</span>
+            <h2 class="section-title">Ce que disent nos clients</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <img src="client1.webp" alt="Client" class="rounded-full mr-4" style="width: 60px; height: 60px;">
+                        <div>
+                            <h4 class="font-bold">ThatAnimeGuy</h4>
+                            <p class="text-red-500">1.2M Abonnés</p>
+                            <div class="flex text-yellow-500">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">Grâce à FoxyAgency, j'ai pu quitter mon travail et vivre de ma passion. Une équipe au top qui a transformé ma chaîne ! Leur expertise en optimisation de contenu et en stratégie de croissance m'a permis d'atteindre des résultats que je n'aurais jamais cru possibles. En seulement quelques mois, mes vues ont explosé et ma communauté s'est considérablement agrandie.</p>
+                </div>
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <img src="client2.jfif" alt="Client" class="rounded-full mr-4" style="width: 60px; height: 60px;">
+                        <div>
+                            <h4 class="font-bold">ArtGurl</h4>
+                            <p class="text-red-500">82.7K Abonnés</p>
+                            <div class="flex text-yellow-500">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">Un accompagnement personnalisé qui a fait toute la différence. Mes revenus ont été multipliés par 5 en seulement 3 mois ! L'équipe comprend parfaitement les enjeux des créateurs de contenu artistique et m'a aidée à développer une identité visuelle unique. Leurs conseils sur la monétisation et les partenariats ont transformé ma passion en véritable entreprise.</p>
+                </div>
+
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <img src="client6.png" alt="Client" class="rounded-full mr-4" style="width: 60px; height: 60px;">
+                        <div>
+                            <h4 class="font-bold">GamingPro365</h4>
+                            <p class="text-red-500">45.2K Abonnés</p>
+                            <div class="flex text-yellow-500">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star text-gray-400"></i>
+                                <i class="fa-solid fa-star text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">FoxyAgency m'a aidé à améliorer la qualité de mes vidéos et à mieux comprendre mon audience. Leurs conseils étaient utiles, même si j'aurais aimé des résultats plus rapides. L'équipe est professionnelle et réactive, mais certaines stratégies proposées n'étaient pas totalement adaptées à mon style de contenu gaming. Dans l'ensemble, une expérience positive qui m'a permis de progresser, même si il y a encore des aspects à améliorer.</p>
+                </div>
+
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <img src="client3.webp" alt="Client" class="rounded-full mr-4" style="width: 60px; height: 60px;">
+                        <div>
+                            <h4 class="font-bold">Enox</h4>
+                            <p class="text-red-500">625.3K Abonnés</p>
+                            <div class="flex text-yellow-500">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">L'équipe de FoxyAgency a su comprendre mes besoins et m'a aidé à atteindre de nouveaux sommets. Je recommande vivement leurs services ! Leur approche data-driven combinée à une vraie compréhension des tendances YouTube a boosté mes performances. Le plus impressionnant a été leur capacité à maintenir une croissance constante tout en préservant l'authenticité de mon contenu.</p>
+                </div>
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <img src="client4.webp" alt="Client" class="rounded-full mr-4" style="width: 60px; height: 60px;">
+                        <div>
+                            <h4 class="font-bold">EmoBoiYT</h4>
+                            <p class="text-red-500">1.28M Abonnés</p>
+                            <div class="flex text-yellow-500">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">Une expérience incroyable avec FoxyAgency. Grâce à leur expertise, j'ai pu développer ma chaîne et augmenter mes revenus de manière significative ! Leur stratégie de référencement et d'optimisation des titres et miniatures a complètement transformé ma visibilité. Le support 24/7 et les rapports détaillés m'ont permis de comprendre exactement ce qui fonctionne pour ma chaîne. Un véritable game-changer dans ma carrière de YouTubeur !</p>
+                </div>
+                
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <img src="fortune.webp" alt="Client" class="rounded-full mr-4" style="width: 60px; height: 60px;">
+                        <div>
+                            <h4 class="font-bold">ItsRealFortune</h4>
+                            <p class="text-red-500">1.58k Abonnés</p>
+                            <div class="flex text-yellow-500">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                        <p class="text-gray-400">FoxyAgency a transformé ma façon de raconter des histoires gaming sur YouTube. Leur expertise en narration et en storytelling m'a permis de créer des vidéos plus immersives et captivantes. Mes abonnés adorent la nouvelle direction créative, et mes vues ont explosé ! Le plus impressionnant est leur compréhension approfondie de la communauté gaming - ils m'ont aidée à trouver ma voix unique tout en restant authentique. En seulement quelques mois, ma chaîne est passée d'un passe-temps à une véritable passion rémunératrice. Ils m'ont fourni une équipe experte et une stratégie de croissance efficace qui a permis à ma chaîne de grandir de manière exponentielle. Je ne peux que recommander leurs services !</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 bg-black/50">
+        <div class="container">
+            <span class="block text-center text-red-500 mb-4"><i class="fa-solid fa-tag mr-2"></i>Tarifs</span>
+            <h2 class="section-title">Investissez dans votre Succès</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-500 px-4 py-1 rounded-full text-sm font-bold">
+                        <i class="fa-solid fa-crown mr-2"></i>POPULAIRE
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4" style="background: linear-gradient(45deg, var(--primary), var(--accent)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Starter</h3>
+                    <div class="text-4xl font-bold mb-4"><span style="text-decoration:line-through; color:gray">9.90€</span> 0€* <span class="text-sm text-gray-400">/mois</span></div>
+                    <span>*Si l'agence est présentée dans un post ou une vidéo</span>
+                    <ul class="space-y-2 text-gray-400 mb-8">
+                        <li><i class="fa-solid fa-check mr-2"></i>Audit de chaîne</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Stratégie de base</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Support email</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn-primary w-full text-center">Commencer</a>
+                </div>
+                <div class="card relative">
+                    <!-- <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-500 px-4 py-1 rounded-full text-sm font-bold">
+                        <i class="fa-solid fa-crown mr-2"></i>POPULAIRE
+                    </div> -->
+                    <h3 class="text-2xl font-bold mb-4" style="background: linear-gradient(45deg, var(--primary), var(--accent)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Pro</h3>
+                    <div class="text-4xl font-bold mb-4">29.90€ <span class="text-sm text-gray-400">/mois</span></div>
+                    <ul class="space-y-2 text-gray-400 mb-8">
+                        <li><i class="fa-solid fa-check mr-2"></i>Tout Starter +</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Production vidéo</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Montage premium</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Support prioritaire</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn-primary w-full text-center">Commencer</a>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4" style="background: linear-gradient(45deg, var(--primary), var(--accent)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Elite</h3>
+                    <div class="text-4xl font-bold mb-4">59.90€ <span class="text-sm text-gray-400">/mois</span></div>
+                    <ul class="space-y-2 text-gray-400 mb-8">
+                        <li><i class="fa-solid fa-check mr-2"></i>Tout Pro +</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Stratégie personnalisée</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Accès direct</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Partenariats garantis</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn-primary w-full text-center">Commencer</a>
+                </div>
+                <div class="card">
+                    <!-- <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-500 px-4 py-1 rounded-full text-sm font-bold">
+                        <i class="fa-solid fa-crown mr-2"></i>
+                    </div> -->
+                    <h3 class="text-2xl font-bold mb-4" style="background: linear-gradient(45deg, var(--primary), var(--accent)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Business</h3>
+                    <div class="text-4xl font-bold mb-4">99.90€ <span class="text-sm text-gray-400">/mois</span></div>
+                    <ul class="space-y-2 text-gray-400 mb-8">
+                        <li><i class="fa-solid fa-check mr-2"></i>Tout Pro +</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Analyse de performance</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Consultation mensuelle</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Accès à des ressources exclusives</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn-primary w-full text-center">Commencer</a>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4" style="background: linear-gradient(45deg, var(--primary), var(--accent)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Ultimate</h3>
+                    <div class="text-4xl font-bold mb-4">149.90€ <span class="text-sm text-gray-400">/mois</span></div>
+                    <ul class="space-y-2 text-gray-400 mb-8">
+                        <li><i class="fa-solid fa-check mr-2"></i>Tout Elite +</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Stratégie de contenu avancée</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Gestion complète de la chaîne</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Accès à un réseau de partenaires</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn-primary w-full text-center">Commencer</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Équipe -->
+    <section id="equipe" class="py-20 bg-black/50">
+        <div class="container">
+            <span class="block text-center text-red-500 mb-4"><i class="fa-solid fa-user-group mr-2"></i>Équipe</span>
+            <h2 class="section-title">Les Experts à Votre Service</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card text-center">
+                    <img src="fox3000foxy.webp" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4" style="object-fit: cover;">
+                    <h3 class="text-xl font-bold mb-2">Fox3000foxy</h3>
+                    <p class="text-red-500 mb-4">CEO & Stratégiste</p>
+                    <p class="text-gray-400 mb-4">10 ans d'expérience dans la création de contenu YouTube. C'est moi qui dirige l'équipe.</p>
+                    <div class="flex justify-center gap-4">
+                        <!-- <span class="flex items-center gap-2"><i class="fa-brands fa-linkedin"></i><a href="#" class="text-gray-400 hover:text-red-500">LinkedIn</a></span> -->
+                        <!-- <span class="flex items-center gap-2"><i class="fa-brands fa-twitter"></i><a href="#" class="text-gray-400 hover:text-red-500">Twitter</a></span> -->
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <img src="roxasytb.webp" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4" style="object-fit: cover;">
+                    <h3 class="text-xl font-bold mb-2">RoxasYTB</h3>
+                    <p class="text-red-500 mb-4">Agent & Responsable Sponsoring</p>
+                    <p class="text-gray-400 mb-4">Expert en négociation et gestion de partenariats. J'ai géré plus de 100 partenariats avec des marques de renommée mondiale.</p>
+                    <div class="flex justify-center gap-4">
+                        <!-- <span class="flex items-center gap-2"><i class="fa-brands fa-linkedin"></i><a href="#" class="text-gray-400 hover:text-red-500">LinkedIn</a></span>
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-twitter"></i><a href="#" class="text-gray-400 hover:text-red-500">Twitter</a></span> -->
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 px-4 py-1 rounded-full text-sm font-bold">
+                        <i class="fa-solid fa-heart mr-2"></i>BÉNÉVOLE
+                    </div>
+                    <img src="refresh4ever.webp" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4" style="object-fit: cover;">
+                    <h3 class="text-xl font-bold mb-2">Refresh4Ever</h3>
+                    <p class="text-red-500 mb-4">Expert SEO</p>
+                    <p class="text-gray-400 mb-4">Spécialiste en optimisation et croissance YouTube. J'optimise le référencement de vos vidéos. J'ai déjà optimisé plus de 100 chaînes YouTube.</p>
+                    <div class="flex justify-center gap-4">
+                        <!-- <span class="flex items-center gap-2"><i class="fa-brands fa-linkedin"></i><a href="#" class="text-gray-400 hover:text-red-500">LinkedIn</a></span>
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-twitter"></i><a href="#" class="text-gray-400 hover:text-red-500">Twitter</a></span> -->
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <img src="choubx.dev.gif" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4" style="object-fit: cover;">
+                    <h3 class="text-xl font-bold mb-2">Choubx.dev</h3>
+                    <p class="text-red-500 mb-4">Designer Graphique</p>
+                    <p class="text-gray-400 mb-4">Créatrice de miniatures. Je crée des miniatures pour des chaînes YouTube. Mes créations sont très appréciées par les créateurs de contenu et par leurs abonnés.</p>
+                    <div class="flex justify-center gap-4">
+                        <!-- <span class="flex items-center gap-2"><i class="fa-brands fa-linkedin"></i><a href="#" class="text-gray-400 hover:text-red-500">LinkedIn</a></span>
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-twitter"></i><a href="#" class="text-gray-400 hover:text-red-500">Twitter</a></span> -->
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <img src="prysm.webp" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4" style="object-fit: cover;">
+                    <h3 class="text-xl font-bold mb-2">Prysm</h3>
+                    <p class="text-red-500 mb-4">Gestionnaire de Communauté</p>
+                    <p class="text-gray-400 mb-4">Expert en engagement et fidélisation. Je gère plus de 100 créateurs de contenu et apporte mon expertise en les conseillant sur leur manière de communiquer avec leurs abonnés.</p>
+                    <div class="flex justify-center gap-4">
+                        <!-- <span class="flex items-center gap-2"><i class="fa-brands fa-linkedin"></i><a href="#" class="text-gray-400 hover:text-red-500">LinkedIn</a></span>
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-twitter"></i><a href="#" class="text-gray-400 hover:text-red-500">Twitter</a></span> -->
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <img src="tilds.webp" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4" style="object-fit: cover;">
+                    <h3 class="text-xl font-bold mb-2">Tilds</h3>
+                    <p class="text-red-500 mb-4">Expert en animation 3D et effets visuels</p>
+                    <p class="text-gray-400 mb-4">Spécialiste en animation 3D et effets visuels. Je suis un expert en animations et en effets spéciaux. C'est moi qui crée les intros et les outros de vos vidéos par exemple, ou des effets de montage.</p>
+                    <div class="flex justify-center gap-4">
+                        <!-- <span class="flex items-center gap-2"><i class="fa-brands fa-linkedin"></i><a href="#" class="text-gray-400 hover:text-red-500">LinkedIn</a></span>
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-twitter"></i><a href="#" class="text-gray-400 hover:text-red-500">Twitter</a></span> -->
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <img src="mikael.jpg" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4" style="object-fit: cover;">
+                    <h3 class="text-xl font-bold mb-2">Laela</h3>
+                    <p class="text-red-500 mb-4">Directrice de production</p>
+                    <p class="text-gray-400 mb-4">Directrice de production. Mon job consiste à gérer les productions pour des chaînes YouTube. C'est moi qui planifie les vidéos et réalise les concepts que vous imaginez.</p>
+                    <div class="flex justify-center gap-4">
+                        <!-- <span class="flex items-center gap-2"><i class="fa-brands fa-linkedin"></i><a href="#" class="text-gray-400 hover:text-red-500">LinkedIn</a></span>
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-twitter"></i><a href="#" class="text-gray-400 hover:text-red-500">Twitter</a></span> -->
+                    </div>
+                </div>
+
+                    
+
+                <div class="card text-center">
+                    <img src="alex.jfif" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4" style="object-fit: cover;">
+                    <h3 class="text-xl font-bold mb-2">Alex</h3>
+                    <p class="text-red-500 mb-4">Développeur Web</p>
+                    <p class="text-gray-400 mb-4">Développeur web passionné, je crée des sites web performants et esthétiques. Mon objectif est d'aider les créateurs à établir une présence en ligne forte et engageante.</p>
+                    <div class="flex justify-center gap-4">
+                        <!-- <span class="flex items-center gap-2"><i class="fa-brands fa-linkedin"></i><a href="#" class="text-gray-400 hover:text-red-500">LinkedIn</a></span>
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-twitter"></i><a href="#" class="text-gray-400 hover:text-red-500">Twitter</a></span> -->
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <img src="tyfania.png" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4" style="object-fit: cover;">
+                    <h3 class="text-xl font-bold mb-2">Tyfania</h3>
+                    <p class="text-red-500 mb-4">Designer Graphique</p>
+                    <p class="text-gray-400 mb-4">C'est moi qui gère votre identité visuelle. Je suis la personne qui s'inspire de votre contenu pour vous représenter avec l'avatar qui vous correspondrait le plus.</p>
+                    <div class="flex justify-center gap-4">
+                        <!-- <span class="flex items-center gap-2"><i class="fa-brands fa-linkedin"></i><a href="#" class="text-gray-400 hover:text-red-500">LinkedIn</a></span>
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-twitter"></i><a href="#" class="text-gray-400 hover:text-red-500">Twitter</a></span> -->
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-500 px-4 py-1 rounded-full text-sm font-bold">
+                        <i class="fa-solid fa-user-tie mr-2"></i>CONSULTANT
+                    </div>
+                    <img src="elix.jpg" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4" style="object-fit: cover;">
+                    <h3 class="text-xl font-bold mb-2">Elix</h3>
+                    <p class="text-red-500 mb-4">Photographe (<a href="https://elixlens.ovh" target="_blank" class="text-red-500 hover:text-red-400 underline">ElixLens</a>)</p>
+                    <p class="text-gray-400 mb-4">Photographe professionnelle. J'ai aidé plus de 150 créateurs à améliorer leurs photos sur d'autres réseaux. Je rajoute une touche personnelle à vos photos qui les contrastent et rendent plus attrayantes. Je suis auto-entrepreneure ElixLens, et je suis également ambassadrice Sony.</p>
+                    <div class="flex justify-center gap-4">
+                        <!-- <span class="flex items-center gap-2"><i class="fa-brands fa-linkedin"></i><a href="#" class="text-gray-400 hover:text-red-500">LinkedIn</a></span>
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-twitter"></i><a href="#" class="text-gray-400 hover:text-red-500">Twitter</a></span> -->
+                    </div> 
+                </div>
+
+                
+                <div class="card text-center">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 px-4 py-1 rounded-full text-sm font-bold">
+                        <i class="fa-solid fa-heart mr-2"></i>BÉNÉVOLE
+                    </div>
+                    <img src="fan2dracaufeu.webp" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4" style="object-fit: cover;">
+                    <h3 class="text-xl font-bold mb-2">Fan2Dracaufeu</h3>
+                    <p class="text-red-500 mb-4">Script Writer</p>
+                    <p class="text-gray-400 mb-4">Passionné d'écriture et de storytelling, je crée des scripts captivants pour vos vidéos YouTube. Mon expertise en narration et en structure scénaristique permet de transformer vos idées en contenus engageants qui retiennent l'attention de votre audience. Je m'assure que chaque script raconte une histoire cohérente tout en respectant votre style et votre personnalité.</p>
+                    <div class="flex justify-center gap-4">
+                        <!-- <span class="flex items-center gap-2"><i class="fa-brands fa-linkedin"></i><a href="#" class="text-gray-400 hover:text-red-500">LinkedIn</a></span>
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-twitter"></i><a href="#" class="text-gray-400 hover:text-red-500">Twitter</a></span> -->
+                    </div>
+                </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 bg-black/50">
+        <div class="container">
+            <span class="block text-center text-red-500 mb-4"><i class="fa-solid fa-question-circle mr-2"></i>FAQ</span>
+            <h2 class="section-title">Questions Fréquentes</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="card cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Combien de temps pour voir des résultats concrets ?</h3>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </div>
+                    <div class="answer hidden mt-4 text-gray-400">
+                        Les premiers résultats sont généralement visibles après 1 à 2 mois de collaboration. Cependant, il est important de noter que la croissance peut varier considérablement en fonction de plusieurs facteurs, tels que votre niche, votre engagement et la qualité du contenu que vous produisez. En moyenne, une croissance significative peut être observée après 3 à 6 mois, mais certains clients peuvent voir des résultats plus rapides ou plus lents selon leur situation spécifique.
+                    </div>
+                </div>
+                
+                <div class="card cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Puis-je changer de forfait en cours de route si mes besoins évoluent ?</h3>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </div>
+                    <div class="answer hidden mt-4 text-gray-400">
+                        Oui, vous avez la flexibilité d'ajuster votre forfait à tout moment en fonction de vos besoins et de votre croissance. Nous comprenons que les objectifs peuvent changer, et nous sommes là pour vous accompagner dans cette évolution. Que vous souhaitiez augmenter vos services ou réduire votre engagement, nous travaillerons ensemble pour trouver la meilleure solution pour vous.
+                    </div>
+                </div>
+                
+                <div class="card cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Comment se déroule la collaboration avec votre équipe ?</h3>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </div>
+                    <div class="answer hidden mt-4 text-gray-400">
+                        La collaboration commence par un audit complet de votre chaîne, où nous analysons vos performances actuelles et identifions les opportunités d'amélioration. Ensuite, nous élaborons une stratégie personnalisée qui répond à vos objectifs spécifiques. Vous bénéficierez d'un suivi régulier, avec des ajustements basés sur vos performances et des conseils pour maximiser votre croissance. Notre équipe est dédiée à votre succès et nous nous engageons à vous fournir un soutien continu tout au long de notre partenariat.
+                    </div>
+                </div>
+
+            <div class="card cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-lg font-semibold">Quels types de contenus puis-je créer pour ma chaîne ?</h3>
+                    <i class="fa-solid fa-chevron-down transition-transform"></i>
+                </div>
+                <div class="answer hidden mt-4 text-gray-400">
+                    Vous pouvez créer une variété de contenus, y compris des tutoriels, des vlogs, des critiques de produits, des vidéos éducatives, et bien plus encore. L'important est de choisir un format qui correspond à votre style et à votre audience. Suivez nos articles pour comprendre comment rendre cet croissance consistante.
+                </div>
+            </div>
+
+            <div class="card cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-lg font-semibold">Comment puis-je promouvoir ma chaîne YouTube ?</h3>
+                    <i class="fa-solid fa-chevron-down transition-transform"></i>
+                </div>
+                <div class="answer hidden mt-4 text-gray-400">
+                    Vous pouvez promouvoir votre chaîne en utilisant les réseaux sociaux, en collaborant avec d'autres créateurs, en optimisant vos vidéos pour le référencement, et en interagissant avec votre audience pour créer une communauté engagée. Notre équipe sera la pour vous accompagner tout au long de votre parcours.
+                </div>
+            </div>
+
+            <div class="card cursor-pointer" onclick="toggleFaq(this)"> 
+                <div class="flex justify-between items-center">
+                    <h3 class="text-lg font-semibold">Quels sont les avantages de travailler avec votre équipe ?</h3>
+                    <i class="fa-solid fa-chevron-down transition-transform"></i>
+                </div>
+                <div class="answer hidden mt-4 text-gray-400">
+                    Travailler avec notre équipe offre plusieurs avantages : une expertise approfondie dans le domaine du contenu YouTube, une stratégie personnalisée pour atteindre vos objectifs, un suivi régulier et des ajustements basés sur vos performances, et un soutien continu tout au long de notre partenariat. Nous sommes là pour vous aider à réussir et à grandir ensemble.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="py-20">
+        <div class="container">
+            <span class="block text-center text-red-500 mb-4"><i class="fa-solid fa-newspaper mr-2"></i>Blog</span>
+            <h2 class="section-title">Derniers Articles</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card" style="cursor: pointer;" onclick="window.location.href='blogs/comment-optimiser-vos-miniatures-youtube'">
+                    <!-- <img src="blog1.jpg" alt="Article 1" class="w-full h-48 object-cover rounded-lg mb-4"> -->
+                    <span class="text-red-500 text-sm"><i class="fa-solid fa-calendar mr-2"></i>27 Janvier 2025</span>
+                    <h3 class="text-xl font-bold my-2">Comment optimiser vos miniatures YouTube</h3>
+                    <small><i>Par <b>Choubx</b></i></small>
+                    <br><br>
+                    <p class="text-gray-400 mb-4">Découvrez nos conseils d'experts pour créer des miniatures qui attirent les clics et augmentent votre taux de conversion. Apprenez les meilleures pratiques pour captiver votre audience dès le premier regard.</p>
+                    <a href="index.html#" class="text-red-500 hover:text-red-400">Lire la suite <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+                
+                <div class="card" style="cursor: pointer;" onclick="window.location.href='blogs/les-tendances-youtube-en-2024'">
+                    <!-- <img src="blog2.jpg" alt="Article 2" class="w-full h-48 object-cover rounded-lg mb-4"> -->
+                    <span class="text-red-500 text-sm"><i class="fa-solid fa-calendar mr-2"></i>27 Janvier 2025</span>
+                    <h3 class="text-xl font-bold my-2">Les tendances YouTube en 2024</h3>
+                    <small><i>Par <b>Refresh4Ever</b></i></small>
+                    <br><br>
+                    <p class="text-gray-400 mb-4">Explorez les formats et thématiques qui dominent YouTube cette année. Découvrez comment adapter votre contenu pour rester pertinent et attirer de nouveaux abonnés.</p>
+                    <a href="index.html#" class="text-red-500 hover:text-red-400">Lire la suite <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+                
+                <div class="card" style="cursor: pointer;" onclick="window.location.href='blogs/monetisation-les-secrets-des-pros'">
+                    <!-- <img src="blog3.jpg" alt="Article 3" class="w-full h-48 object-cover rounded-lg mb-4"> -->
+                    <span class="text-red-500 text-sm"><i class="fa-solid fa-calendar mr-2"></i>27 Janvier 2025</span>
+                    <h3 class="text-xl font-bold my-2">Monétisation : les secrets des pros</h3>
+                    <small><i>Par <b>RoxasYTB</b></i></small>
+                    <br><br>
+                    <p class="text-gray-400 mb-4">Découvrez comment diversifier vos sources de revenus sur YouTube. Apprenez les stratégies utilisées par les créateurs à succès pour maximiser leurs gains et établir des partenariats lucratifs.</p>
+                    <a href="index.html#" class="text-red-500 hover:text-red-400">Lire la suite <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+
+                <div class="card" style="cursor: pointer;" onclick="window.location.href='blogs/comment-reussir-ses-shorts'">
+                    <span class="text-red-500 text-sm"><i class="fa-solid fa-calendar mr-2"></i>27 Janvier 2025</span>
+                    <h3 class="text-xl font-bold my-2">Comment réussir ses Shorts</h3>
+                    <small><i>Par <b>Laela</b></i></small>
+                    <br><br>
+                    <p class="text-gray-400 mb-4">Maîtrisez l'art des Shorts YouTube pour booster votre croissance. Découvrez les techniques pour créer du contenu viral et engageant dans ce format court.</p>
+                    <a href="index.html#" class="text-red-500 hover:text-red-400">Lire la suite <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+
+                <div class="card" style="cursor: pointer;" onclick="window.location.href='blogs/optimiser-son-referencement'">
+                    <span class="text-red-500 text-sm"><i class="fa-solid fa-calendar mr-2"></i>27 Janvier 2025</span>
+                    <h3 class="text-xl font-bold my-2">Optimiser son référencement</h3>
+                    <small><i>Par <b>Refresh4Ever</b></i></small>
+                    <br><br>
+                    <p class="text-gray-400 mb-4">Les secrets du SEO YouTube enfin révélés. Apprenez à optimiser vos titres, descriptions et tags pour améliorer votre visibilité dans les résultats de recherche.</p>
+                    <a href="index.html#" class="text-red-500 hover:text-red-400">Lire la suite <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+
+                <div class="card" style="cursor: pointer;" onclick="window.location.href='blogs/creer-une-communaute-engagee'">
+                    <span class="text-red-500 text-sm"><i class="fa-solid fa-calendar mr-2"></i>27 Janvier 2025</span>
+                    <h3 class="text-xl font-bold my-2">Créer une communauté engagée</h3>
+                    <small><i>Par <b>Prysm</b></i></small>
+                    <br><br>
+                    <p class="text-gray-400 mb-4">L'engagement est la clé du succès sur YouTube. Découvrez comment construire et animer une communauté fidèle qui soutiendra votre croissance.</p>
+                    <a href="index.html#" class="text-red-500 hover:text-red-400">Lire la suite <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+
+                <div class="card" style="cursor: pointer;" onclick="window.location.href='blogs/photographie-youtube'">
+                    <span class="text-red-500 text-sm"><i class="fa-solid fa-calendar mr-2"></i>27 Janvier 2025</span>
+                    <h3 class="text-xl font-bold my-2">La photographie pour YouTube</h3>
+                    <small><i>Par <b>Elix</b></i></small>
+                    <br><br>
+                    <p class="text-gray-400 mb-4">Découvrez comment améliorer la qualité visuelle de vos vidéos grâce à des techniques de photographie professionnelles. Des conseils d'éclairage aux meilleurs angles de prise de vue.</p>
+                    <a href="index.html#" class="text-red-500 hover:text-red-400">Lire la suite <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+
+                <div class="card" style="cursor: pointer;" onclick="window.location.href='blogs/motion-design-youtube'">
+                    <span class="text-red-500 text-sm"><i class="fa-solid fa-calendar mr-2"></i>27 Janvier 2025</span>
+                    <h3 class="text-xl font-bold my-2">Le Motion Design sur YouTube</h3>
+                    <small><i>Par <b>Tyfania</b></i></small>
+                    <br><br>
+                    <p class="text-gray-400 mb-4">Maîtrisez l'art du motion design pour créer des vidéos plus dynamiques et professionnelles. Apprenez à intégrer des animations qui captiveront votre audience.</p>
+                    <a href="index.html#" class="text-red-500 hover:text-red-400">Lire la suite <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+
+                <div class="card" style="cursor: pointer;" onclick="window.location.href='blogs/developpement-web-youtube'">
+                    <span class="text-red-500 text-sm"><i class="fa-solid fa-calendar mr-2"></i>27 Janvier 2025</span>
+                    <h3 class="text-xl font-bold my-2">Le développement web pour les YouTubeurs</h3>
+                    <small><i>Par <b>Alex</b></i></small>
+                    <br><br>
+                    <p class="text-gray-400 mb-4">Apprenez à créer un site web professionnel pour votre chaîne YouTube. Des conseils techniques pour optimiser votre présence en ligne et améliorer l'expérience de vos viewers.</p>
+                    <a href="index.html#" class="text-red-500 hover:text-red-400">Lire la suite <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20">
+        <div class="container">
+            <span class="block text-center text-red-500 mb-4">Contact</span>
+            <h2 class="section-title">Démarrez votre Succès</h2>
+            <div class="max-w-2xl mx-auto">
+                <form class="space-y-6" action="https://foxyagency.fr/contact" method="post">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <input type="text" placeholder="Nom" name="name" class="w-full p-3 bg-white/5 rounded-lg border border-red-500/20 focus:border-red-500 outline-none" required>
+                        <input type="email" placeholder="Email" name="email" class="w-full p-3 bg-white/5 rounded-lg border border-red-500/20 focus:border-red-500 outline-none" required>
+                    </div>
+                    <select name="formula" class="w-full p-3 bg-white/5 rounded-lg border border-red-500/20 focus:border-red-500 outline-none text-gray-400">
+                        <option style="background-color: #1a1a1a; color: #ffffff; display: none;" value="" disabled selected>Sélectionnez une formule</option>
+                        <option style="background-color: #1a1a1a; color: #ffffff;" value="Starter">Starter - 0€/mois ou 9.90€/mois</option>
+                        <option style="background-color: #1a1a1a; color: #ffffff;" value="Pro">Pro - 29.90€/mois</option>
+                        <option style="background-color: #1a1a1a; color: #ffffff;" value="Elite">Elite - 59.90€/mois</option>
+                        <option style="background-color: #1a1a1a; color: #ffffff;" value="Business">Business - 99.90€/mois</option>
+                        <option style="background-color: #1a1a1a; color: #ffffff;" value="Ultimate">Ultimate - 149.90€/mois</option>
+                    </select>
+                    <input type="text" placeholder="Nom de votre chaîne" name="channel" class="w-full p-3 bg-white/5 rounded-lg border border-red-500/20 focus:border-red-500 outline-none" required>
+                    <input type="number" placeholder="Nombre d'abonnés actuel" name="subs" class="w-full p-3 bg-white/5 rounded-lg border border-red-500/20 focus:border-red-500 outline-none" required>
+                    <textarea rows="5" placeholder="Votre message" name="message" class="w-full p-3 bg-white/5 rounded-lg border border-red-500/20 focus:border-red-500 outline-none" required></textarea>
+                    <button type="submit" class="btn-primary w-full">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avant le Footer -->
+    <section class="py-20 bg-black/30">
+        <div class="container">
+            <span class="block text-center text-red-500 mb-4"><i class="fa-solid fa-handshake mr-2"></i>Nos Partenaires</span>
+            <h2 class="section-title">Ils nous font confiance</h2>
+            <div class="relative">
+                <div class="overflow-hidden">
+                    <div class="flex transition-transform duration-500" id="carousel" style="width: 500%">
+                        <div class="w-1/5 p-4">
+                            <div class="card flex items-center justify-center p-8 transition-all">
+                                <div class="flex flex-col items-center justify-center">
+                                    <img src="client1.webp" alt="ThatAnimeGuy" class="h-12 object-contain rounded-full">
+                                    <h3 class="text-xl font-bold my-2">ThatAnimeGuy</h3>
+                                    <span class="text-gray-400">Chaine dont le concept est de faire des vidéos sur les actus animes</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/5 p-4">
+                            <div class="card flex items-center justify-center p-8 transition-all">
+                                <div class="flex flex-col items-center justify-center">
+                                    <img src="client2.jfif" alt="ArtGurl" class="h-12 object-contain rounded-full">
+                                    <h3 class="text-xl font-bold my-2">ArtGurl</h3>
+                                    <span class="text-gray-400">Chaine d'artiste qui fait de l'art digitale et des vidéos sur des techniques d'art digitale</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/5 p-4">
+                            <div class="card flex items-center justify-center p-8 transition-all">
+                                <div class="flex flex-col items-center justify-center">
+                                    <img src="client3.webp" alt="Enox" class="h-12 object-contain rounded-full">
+                                    <h3 class="text-xl font-bold my-2">Enox</h3>
+                                    <span class="text-gray-400">Chaine gaming, majoritairement sur Fortnite</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/5 p-4">
+                            <div class="card flex items-center justify-center p-8 transition-all">
+                                <div class="flex flex-col items-center justify-center">
+                                    <img src="fortune.webp" alt="ItsRealFortune" class="h-12 object-contain rounded-full">
+                                    <h3 class="text-xl font-bold my-2">ItsRealFortune</h3>
+                                    <span class="text-gray-400">Chaine storytelling, actus, critiques, etc... sur les jeux vidéo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/5 p-4">
+                            <div class="card flex items-center justify-center p-8 transition-all">
+                                <div class="flex flex-col items-center justify-center">
+                                    <img src="elix.jpg" alt="Elix" class="h-12 object-contain rounded-full">
+                                    <h3 class="text-xl font-bold my-2">Elix</h3>
+                                    <span class="text-gray-400">Photographe qui fait des vidéos sur la photographie</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="slide('prev')" class="absolute left-0 top-1/2 -translate-y-1/2 bg-red-600 p-2 rounded-full text-white hover:bg-red-700 z-10"><i class="fa-solid fa-chevron-left"></i></button>
+                <button onclick="slide('next')" class="absolute right-0 top-1/2 -translate-y-1/2 bg-red-600 p-2 rounded-full text-white hover:bg-red-700 z-10"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            <div class="flex justify-center gap-2 mt-4">
+                <button onclick="goToSlide(0)" class="w-3 h-3 rounded-full bg-red-600"></button>
+                <button onclick="goToSlide(1)" class="w-3 h-3 rounded-full bg-red-600/50"></button>
+                <button onclick="goToSlide(2)" class="w-3 h-3 rounded-full bg-red-600/50"></button>
+                <button onclick="goToSlide(3)" class="w-3 h-3 rounded-full bg-red-600/50"></button>
+                <button onclick="goToSlide(4)" class="w-3 h-3 rounded-full bg-red-600/50"></button>
+            </div>
+        </div>
+        <script>
+            let currentSlide = 0;
+            const carousel = document.getElementById('carousel');
+            const slideCount = 5;
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            function slide(direction) {
+                if (direction === 'next') {
+                    currentSlide = (currentSlide + 1) % slideCount;
+                } else {
+                    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                }
+                updateCarousel();
+            }
+
+            function goToSlide(index) {
+                currentSlide = index;
+                updateCarousel();
+            }
+
+            function updateCarousel() {
+                const offset = -currentSlide * 20;
+                carousel.style.transform = `translateX(${offset}%)`;
+                updateDots();
+            }
+
+            function updateDots() {
+                const dots = document.querySelectorAll('.flex.justify-center button');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('bg-red-600', index === currentSlide);
+                    dot.classList.toggle('bg-red-600/50', index !== currentSlide);
+                });
+            }
+
+            // Touch events for mobile
+            carousel.addEventListener('touchstart', (e) => {
+                touchStartX = e.touches[0].clientX;
+            });
+
+            carousel.addEventListener('touchmove', (e) => {
+                touchEndX = e.touches[0].clientX;
+            });
+
+            carousel.addEventListener('touchend', () => {
+                const swipeDistance = touchEndX - touchStartX;
+                if (Math.abs(swipeDistance) > 50) { // Minimum swipe distance
+                    if (swipeDistance > 0) {
+                        slide('prev');
+                    } else {
+                        slide('next');
+                    }
+                }
+            });
+
+            // Auto-slide every 5 seconds
+            setInterval(() => slide('next'), 5000);
+        </script>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10">
+        <div class="container">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">FoxyAgency</h4>
+                    <p class="text-gray-400">Votre partenaire pour réussir sur YouTube</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa-solid fa-check mr-2"></i>Stratégie</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Production</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Monétisation</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa-solid fa-envelope mr-2"></i><a href="https://foxyagency.fr/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="54373b3a2035372014323b2c2d3533313a372d7a3226">[email&#160;protected]</a></li>
+                        <li><i class="fa-solid fa-phone mr-2"></i>Indisponible</li>
+                        <li><i class="fa-solid fa-location-dot mr-2"></i>Indisponible</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Suivez-nous</h4>
+                    <div class="flex gap-4 flex-col">
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-discord"></i><a href="https://discord.gg/fox3000foxy" class="text-gray-400 hover:text-red-500">Discord</a></span>
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-youtube"></i><a href="https://www.youtube.com/@fox3000foxy" class="text-gray-400 hover:text-red-500">YouTube</a></span>
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-instagram"></i><a href="https://www.instagram.com/fox3000foxy" class="text-gray-400 hover:text-red-500">Instagram</a></span>
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-twitter"></i><a href="https://twitter.com/fox3000foxy" class="text-gray-400 hover:text-red-500">Twitter</a></span>
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-tiktok"></i><a href="https://www.tiktok.com/@fox3000foxy" class="text-gray-400 hover:text-red-500">TikTok</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 pt-8 border-t border-white/10">
+                <p>© <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> FoxyAgency. Tous droits réservés. | 
+                    <button onclick="openModal('tos')" class="text-gray-400 hover:text-red-500">Conditions d'utilisation</button> | 
+                    <button onclick="openModal('privacy')" class="text-gray-400 hover:text-red-500">Politique de confidentialité</button>
+                </p>
+                
+                <!-- TOS Modal -->
+                <div id="tosModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center flex" style="height: 100vh;">
+                    <div class="bg-gray-900 p-8 rounded-lg max-w-2xl max-h-[80vh] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-800 [&::-webkit-scrollbar-thumb]:bg-red-500 [&::-webkit-scrollbar-thumb]:rounded">
+                        <h3 class="text-xl font-bold mb-4">Conditions d'utilisation</h3>
+                        <div class="text-gray-400">
+                            <h4 class="font-bold mb-2">1. Acceptation des conditions</h4>
+                            <p class="mb-4">En accédant et en utilisant les services de FoxyAgency, vous acceptez d'être lié par ces conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser nos services.</p>
+
+                            <h4 class="font-bold mb-2">2. Description des services</h4>
+                            <p class="mb-4">FoxyAgency fournit des services de conseil et d'accompagnement pour les créateurs de contenu YouTube, incluant la stratégie, la production et la monétisation.</p>
+
+                            <h4 class="font-bold mb-2">3. Responsabilités du client</h4>
+                            <p class="mb-4">Le client s'engage à fournir des informations exactes et à jour, à respecter les délais convenus et à collaborer de manière professionnelle avec l'équipe de FoxyAgency.</p>
+
+                            <h4 class="font-bold mb-2">4. Propriété intellectuelle</h4>
+                            <p class="mb-4">Tous les contenus créés par FoxyAgency restent la propriété de l'agence jusqu'au paiement complet des services. Les droits sont ensuite transférés au client selon les termes du contrat.</p>
+
+                            <h4 class="font-bold mb-2">5. Confidentialité</h4>
+                            <p class="mb-4">FoxyAgency s'engage à maintenir la confidentialité des informations fournies par le client. Pour plus de détails, consultez notre politique de confidentialité.</p>
+
+                            <h4 class="font-bold mb-2">6. Modifications</h4>
+                            <p class="mb-4">FoxyAgency se réserve le droit de modifier ces conditions à tout moment. Les modifications seront effectives dès leur publication sur le site.</p>
+                        </div>
+                        <button onclick="closeModal('tos')" class="mt-4 btn-primary">Fermer</button>
+                    </div>
+                </div>
+
+                <!-- Privacy Modal -->
+                <div id="privacyModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center" style="height: 100vh;">
+                    <div class="bg-gray-900 p-8 rounded-lg max-w-2xl max-h-[80vh] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-800 [&::-webkit-scrollbar-thumb]:bg-red-500 [&::-webkit-scrollbar-thumb]:rounded">
+                        <h3 class="text-xl font-bold mb-4">Politique de confidentialité</h3>
+                        <div class="text-gray-400">
+                            <h4 class="font-bold mb-2">1. Collecte des données</h4>
+                            <p class="mb-4">FoxyAgency collecte uniquement les données nécessaires à la fourniture de nos services, incluant nom, email et informations relatives à votre chaîne YouTube.</p>
+
+                            <h4 class="font-bold mb-2">2. Utilisation des données</h4>
+                            <p class="mb-4">Vos données sont utilisées pour personnaliser nos services, améliorer notre offre et communiquer avec vous concernant votre projet.</p>
+
+                            <h4 class="font-bold mb-2">3. Protection des données</h4>
+                            <p class="mb-4">Nous mettons en œuvre des mesures de sécurité appropriées pour protéger vos données contre tout accès non autorisé ou toute divulgation.</p>
+
+                            <h4 class="font-bold mb-2">4. Partage des données</h4>
+                            <p class="mb-4">Vos données ne sont jamais vendues à des tiers. Elles peuvent être partagées avec des prestataires de service uniquement dans le cadre de nos services.</p>
+
+                            <h4 class="font-bold mb-2">5. Vos droits</h4>
+                            <p class="mb-4">Vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Contactez-nous à <a href="https://foxyagency.fr/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="eb9b99829d8a8892abad849392aa8c8e858892c58d99">[email&#160;protected]</a> pour exercer ces droits.</p>
+
+                            <h4 class="font-bold mb-2">6. Cookies</h4>
+                            <p class="mb-4">Notre site utilise des cookies essentiels pour son fonctionnement. Vous pouvez les désactiver dans les paramètres de votre navigateur.</p>
+                        </div>
+                        <button onclick="closeModal('privacy')" class="mt-4 btn-primary">Fermer</button>
+                    </div>
+                </div>
+
+                <!-- Cookie Consent Modal -->
+                <div id="cookieModal" class="fixed bottom-4 left-4 bg-gray-900 p-6 rounded-lg max-w-md shadow-lg hidden">
+                    <h3 class="text-lg font-bold mb-2">🍪 Utilisation des cookies</h3>
+                    <p class="text-gray-400 mb-4">Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre utilisation des cookies.</p>
+                    <div class="flex gap-4 justify-center">
+                        <button onclick="acceptCookies()" class="btn-primary">Accepter</button>
+                        <button onclick="closeModal('cookie')" class="text-gray-400 hover:text-white">Refuser</button>
+                    </div>
+                </div>
+
+                <!-- Loading Screen -->
+                <div id="loadingScreen" style="display: none;"
+                     class="fixed inset-0 bg-gray-900 z-50 flex items-center justify-center transition-opacity duration-1000">
+                    <div class="text-center flex flex-col items-center justify-center">
+                        <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500 mb-4">
+                        </div>
+                        <h2 class="text-xl text-white">
+                            Chargement...
+                        </h2>
+                    </div>
+                </div>
+
+                <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+                    window.addEventListener('load', () => {
+                        const loadingScreen = document.getElementById('loadingScreen');
+                        // Add opacity-0 to trigger fade out
+                        loadingScreen.classList.add('opacity-0');
+                        // Remove the element after animation completes
+                        setTimeout(() => {
+                            loadingScreen.style.display = 'none';
+                            startCounters();
+                        }, 1000);
+                    });
+                </script>
+
+                <script>
+                    function acceptCookies() {
+                        localStorage.setItem('cookiesAccepted', 'true');
+                        closeModal('cookie');
+                    }
+
+                    // Afficher la modal des cookies si pas encore acceptés
+                    window.addEventListener('load', () => {
+                        if (!localStorage.getItem('cookiesAccepted')) {
+                            const cookieModal = document.getElementById('cookieModal');
+                            cookieModal.classList.remove('hidden');
+                        }
+                    });
+                </script>
+
+                <script>
+                    function openModal(type) {
+                        const modal = document.getElementById(type + 'Modal');
+                        modal.classList.remove('hidden');
+                        modal.classList.add('flex');
+                    }
+
+                    function closeModal(type) {
+                        const modal = document.getElementById(type + 'Modal');
+                        modal.classList.add('hidden');
+                        modal.classList.remove('flex');
+                    }
+                </script>
+
+                <script>
+                function toggleFaq(element) {
+                    const answer = element.querySelector('.answer');
+                    const icon = element.querySelector('.fa-chevron-down');
+                    answer.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                }
+
+                fetch('/get-google-infos', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then((response) => response.json())
+                .then((res) => {
+                    if(res.success) {
+                        const {data} = res
+                        console.log(data);
+
+                        document.querySelector("#contact > div > div > form").name.value = data.channel.snippet.title
+                        document.querySelector("#contact > div > div > form").channel.value = data.channel.snippet.customUrl
+                        document.querySelector("#contact > div > div > form").subs.value = data.channel.statistics.subscriberCount
+
+                        document.getElementById("username-here").innerText = data.channel.snippet.title
+                        document.getElementById("username-here").href = '/dashboard'
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+                </script>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
